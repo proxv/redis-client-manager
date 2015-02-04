@@ -1,0 +1,15 @@
+{
+  "name": "redis-client-manager",
+  "version": "1.0.0",
+  "description": "Simple wrapper for managing multiple redis clients",
+  "main": "index.js",
+  "dependencies": {
+    "redis": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Baumgart",
+  "license": "WTFPL"
+}
