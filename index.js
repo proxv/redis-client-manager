@@ -9,8 +9,13 @@ function RedisClientManager(redisConfig) {
 }
 
 RedisClientManager.prototype.getClient = function(name, cb) {
-  var redisClient = this._redisClientsByName[name] || redis.createClient(this._redisConfig);
-  this._redisClientsByName[name] = redisClient;
+  var redisClient = this._redisClientsByName[name];
+  if (!redisClient) {
+    redisClient = redis.createClient(this._redisConfig);
+    redisClient.name = name;
+    this._redisClientsByName[name] = redisClient;
+  }
+
   if (this._redisDbNum) {
     redisClient.select(this._redisDbNum, function(err) {
       if (err) {
