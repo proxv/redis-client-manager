@@ -1,6 +1,6 @@
 {
   "name": "redis-client-manager",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple wrapper for managing multiple redis clients",
   "main": "index.js",
   "dependencies": {

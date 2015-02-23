@@ -11,7 +11,9 @@ function RedisClientManager(redisConfig) {
 RedisClientManager.prototype.getClient = function(name, cb) {
   var redisClient = this._redisClientsByName[name];
   if (!redisClient) {
-    redisClient = redis.createClient(this._redisConfig);
+    var port = this._redisConfig.port || 6379;
+    var host = this._redisConfig.host || '127.0.0.1';
+    redisClient = redis.createClient(port, host, this._redisConfig);
     redisClient.name = name;
     this._redisClientsByName[name] = redisClient;
   }
